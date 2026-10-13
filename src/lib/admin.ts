@@ -15,6 +15,7 @@ export const ROLE_LABELS: Record<AppRole, string> = {
   hr_manager: "HR Manager",
   viewer: "Viewer / Auditor",
   partner: "Retail Partner",
+  programme_manager: "Funding Programme Team",
 };
 
 export const LEAD_STATUSES = ["new", "contacted", "qualified", "proposal", "won", "lost", "closed"] as const;
