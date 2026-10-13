@@ -111,6 +111,6 @@ export function FundingProgrammePage() {
     </main><SiteFooter />
     <Dialog open={registerOpen} onOpenChange={setRegisterOpen}><DialogContent className="programme-registration-dialog"><DialogTitle>Register Your Startup</DialogTitle><p>RIPL Startup Funding Programme · 29–31 December 2026, Gwalior</p><FundingForm /></DialogContent></Dialog>
     <Dialog open={videoOpen} onOpenChange={setVideoOpen}><DialogContent><DialogTitle>RIPL Startup Funding Programme</DialogTitle><p>The programme video has not been provided yet. Explore the five-stage startup journey below.</p><Button variant="programme" asChild><a href="#process" onClick={() => setVideoOpen(false)}>View Startup Journey <ArrowRight /></a></Button></DialogContent></Dialog>
-  </></>;
+  </>;
 }
 function RegistrationListener({ onOpen }: { onOpen: () => void }) { useEffect(() => { window.addEventListener("programme-register", onOpen); return () => window.removeEventListener("programme-register", onOpen); }, [onOpen]); return null; }
