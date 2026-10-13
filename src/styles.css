@@ -1484,3 +1484,7 @@ html .site-footer { --primary: var(--site-primary); }
 .programme-opportunity h2 { font-size: 45px; }.programme-strip .programme-icon-tiles > div { flex-direction: column; text-align: center; }.programme-strip .programme-icon-tiles svg { margin-bottom: 8px; }.programme-footer > div { grid-template-columns: 1fr 1fr; gap: 25px; }.programme-support-photos { height: 72px; }
 }
 @media (prefers-reduced-motion: reduce) { .programme-page *, .programme-button { transition: none; scroll-behavior: auto; } }
+
+/* Non-refundable grant highlight */
+.programme-grant-highlight { margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--programme-gold); border-radius: 6px; font-size: 14px; line-height: 1.5; color: var(--programme-photo-text); }
+.programme-grant-highlight strong { color: var(--programme-gold); font-weight: 800; }
