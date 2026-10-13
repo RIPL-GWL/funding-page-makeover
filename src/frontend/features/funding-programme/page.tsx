@@ -8,8 +8,9 @@ import supportPhotos from "@/assets/funding-support-photos.jpg";
 import logo from "@/assets/header-wordmark-dark.webp.asset.json";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/frontend/components/ui/dialog";
-import { Menu, X, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { programmeRules, registrationTotal } from "./rules";
+import { SiteFooter, SiteHeader } from "@/frontend/components/site-chrome";
 const hero = { url: heroPhoto };
 import benefit0Asset from "@/assets/funding-programme-benefit-0.webp.asset.json";
 const benefit0 = benefit0Asset.url;
@@ -54,7 +55,7 @@ const eligibility = [
 const faqs = [
   ["What is the registration fee?", `The fee is ₹${programmeRules.registrationFee.toLocaleString("en-IN")} plus ${programmeRules.gstPercent}% GST (₹${registrationTotal(2).toLocaleString("en-IN")} total) per startup for up to two people. Each additional participant costs ₹${programmeRules.additionalParticipantFee.toLocaleString("en-IN")} plus ${programmeRules.gstPercent}% GST (₹${(registrationTotal(3) - registrationTotal(2)).toLocaleString("en-IN")} total).`],
   ["Who can participate?", "Early-stage, student-led, innovative, product- or service-based and growth-stage startups can submit their details. Participation is subject to review and selection."],
-  ["Is the funding guaranteed?", "No. The programme offers a funding opportunity of up to ₹15 lakhs across the top two performing startups. Selection and support depend on evaluation, eligibility, performance and applicable terms. Investor funding is not guaranteed."],
+  ["Is the funding guaranteed?", "The non-refundable grant of up to ₹15 lakhs is awarded to only the top two performing startups. Beyond the grant, selected startups may also pitch to participating investors for funding — but investor funding is not guaranteed and depends on evaluation, eligibility, performance and applicable terms."],
   ["What does the registration include?", "The stated fee covers participation for up to two people from one startup. The team will confirm participation details and applicable terms before payment."],
   ["Will travel, stay and food be provided?", "Eligible selected participants receive accommodation, food, one-side travel ticket reimbursement, local travel and a Gwalior tour, subject to programme policy and terms. Confirm eligibility and reimbursement arrangements with the team before booking."],
   ["What is the last date to register?", "A registration deadline has not been announced here. Contact the RIPL team to confirm availability and the application schedule."],
@@ -73,10 +74,9 @@ function IconTiles({ items }: { items: { icon: LucideIcon; title: string }[] }) 
 }
 export function FundingProgrammePage() {
   const [registerOpen, setRegisterOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
-  return <main className="programme-page"><RegistrationListener onOpen={() => setRegisterOpen(true)} />
-    <header className="programme-header"><div className="page-shell"><Link to="/" aria-label="RIPL home"><img src={logo.url} width={180} height={54} alt="RIPL — Rishishwar Industry Private Limited" /></Link><nav aria-label="Programme navigation" className={menuOpen ? "programme-nav programme-nav-open" : "programme-nav"}><Link to="/">Home</Link>{[["About", "about-programme"], ["Why Participate", "why-participate"], ["Process", "process"], ["Benefits", "benefits"], ["FAQs", "programme-faq"]].map(([label,id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}<Link to="/contact">Contact</Link></nav><RegisterButton compact /><p className="programme-header-motto">Grow Your<br />Business<br />With Us.</p><Button variant="ghost" size="icon" className="programme-menu" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button></div></header>
+  return <><SiteHeader />
+    <main className="programme-page"><RegistrationListener onOpen={() => setRegisterOpen(true)} />
     <section className="programme-hero">
       <img src={hero.url} alt="Startup founder overlooking Gwalior’s fort and palace at sunset" width={1944} height={700} fetchPriority="high" className="programme-hero-photo" />
       <div className="programme-hero-veil" />
@@ -95,8 +95,8 @@ export function FundingProgrammePage() {
     </section>
     <section className="programme-strip"><div className="page-shell"><IconTiles items={[{ icon: Lightbulb, title: "Funding Opportunities" }, { icon: Handshake, title: "Investor Connect" }, { icon: Users, title: "Mentorship Support" }, { icon: ClipboardCheck, title: "Business Evaluation" }, { icon: Handshake, title: "Strategic Networking" }, { icon: ChartNoAxesCombined, title: "National Visibility" }]} /><p><img src={logo.url} alt="RIPL" width={70} height={35} />Organised by <strong>Rishishwar Industry Private Limited (RIPL)</strong><small>Grow Your Business With Us.</small></p></div></section>
     <section id="about-programme" className="programme-funding"><div className="page-shell programme-funding-grid">
-      <div className="programme-opportunity"><p>UP TO</p><h2>₹15 LAKHS<span>FUNDING OPPORTUNITY</span></h2><p>A platform to support innovative startups and emerging businesses with an opportunity for funding, mentorship and investor connections.</p></div>
-      <div><div className="programme-prizes">{[{ title: "Top Performing Startup", amount: "₹10 LAKHS" }, { title: "Second Top Performing Startup", amount: "₹5 LAKHS" }].map(({ title, amount }) => <article key={title}><Trophy /><div><h3>{title}</h3><p>Up to <strong>{amount}</strong></p></div></article>)}</div><p className="programme-terms">Non-refundable financial support. Subject to evaluation, eligibility, performance and applicable Terms & Conditions.</p><IconTiles items={[{icon:Users,title:"Mentor Support"},{icon:Handshake,title:"Investor Meetings"},{icon:ClipboardCheck,title:"Business Evaluation"},{icon:ChartNoAxesCombined,title:"5-Stage Startup Journey"},{icon:Handshake,title:"Strategic Partnerships"},{icon:Globe2,title:"National Exposure"}]} /></div>
+      <div className="programme-opportunity"><p>UP TO</p><h2>₹15 LAKHS<span>NON-REFUNDABLE GRANT OPPORTUNITY</span></h2><p>A platform to support innovative startups and emerging businesses with a non-refundable grant, mentorship and investor connections.</p><p className="programme-grant-highlight"><strong>The non-refundable grant will be awarded to only two startups.</strong> But funding can also come your way — selected startups pitch to participating investors for additional funding.</p></div>
+      <div><div className="programme-prizes">{[{ title: "Top Performing Startup", amount: "₹10 LAKHS" }, { title: "Second Top Performing Startup", amount: "₹5 LAKHS" }].map(({ title, amount }) => <article key={title}><Trophy /><div><h3>{title}</h3><p>Up to <strong>{amount}</strong></p></div></article>)}</div><p className="programme-terms">The non-refundable grant is awarded to only two startups. Subject to evaluation, eligibility, performance and applicable Terms &amp; Conditions.</p><IconTiles items={[{icon:Users,title:"Mentor Support"},{icon:Handshake,title:"Investor Meetings"},{icon:ClipboardCheck,title:"Business Evaluation"},{icon:ChartNoAxesCombined,title:"5-Stage Startup Journey"},{icon:Handshake,title:"Strategic Partnerships"},{icon:Globe2,title:"National Exposure"}]} /></div>
     </div></section>
     <section id="process" className="page-shell programme-section"><Heading note="FROM IDEA TO INVESTMENT">The 5-Stage <em>Startup</em> Journey</Heading><ol className="programme-journey">{journey.map(({ icon: Icon, title, text }, index) => <li key={title}><span className="programme-step">0{index + 1}</span><Icon /><h3>{title}</h3><p>{text}</p>{index < 4 && <ArrowRight className="programme-step-arrow" />}</li>)}</ol></section>
     <section id="benefits" className="programme-benefits"><div className="page-shell programme-section"><Heading>What You Get</Heading><div className="programme-benefit-grid">{benefits.map(({ icon: Icon, title, text, image }) => <article key={title}><img src={image} alt={title} width={592} height={298} loading="lazy" /><div><span className="programme-benefit-icon"><Icon /></span><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>
