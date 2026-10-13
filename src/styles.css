@@ -1488,3 +1488,15 @@ html .site-footer { --primary: var(--site-primary); }
 /* Non-refundable grant highlight */
 .programme-grant-highlight { margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--programme-gold); border-radius: 6px; font-size: 14px; line-height: 1.5; color: var(--programme-photo-text); }
 .programme-grant-highlight strong { color: var(--programme-gold); font-weight: 800; }
+.programme-app-intro { max-width: 760px; margin: 0 0 22px; line-height: 1.6; }
+.programme-app-form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 18px; padding: 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+.programme-app-form label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; color: var(--foreground); }
+.programme-app-field { width: 100%; border: 1px solid var(--input); border-radius: 8px; background: var(--background); color: var(--foreground); padding: 10px 12px; font-size: 14px; font-weight: 400; }
+.programme-app-wide { grid-column: 1 / -1; }
+.programme-app-fee { align-self: end; font-size: 13px; color: var(--muted-foreground); }
+.programme-app-error { color: var(--destructive); font-size: 13px; }
+.programme-app-result { padding: 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); color: var(--foreground); }
+.programme-app-result h3 { font-size: 22px; margin-bottom: 6px; }
+.programme-app-advice { margin-top: 16px; padding: 18px; border-left: 4px solid var(--programme-gold, var(--primary)); background: var(--muted); border-radius: 8px; font-size: 14px; line-height: 1.6; }
+.programme-app-advice small { display: block; margin-top: 12px; color: var(--muted-foreground); }
+@media (width < 40rem) { .programme-app-form { grid-template-columns: 1fr; padding: 16px; } }
