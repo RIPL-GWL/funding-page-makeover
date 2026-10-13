@@ -9,13 +9,13 @@ const field = "programme-app-field";
 export function ProgrammeApplicationForm() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [done, setDone] = useState<{ advice: string | null; adviceError?: string } | null>(null);
+  const [done, setDone] = useState<{ advice: string | null; adviceError?: string | undefined } | null>(null);
   const [participants, setParticipants] = useState(1);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const raw = Object.fromEntries(new FormData(e.currentTarget));
-    const parsed = applicationSchema.safeParse({ ...raw, city: raw.city || undefined });
+    const parsed = applicationSchema.safeParse({ ...raw, city: raw["city"] || undefined });
     if (!parsed.success) { setError("Kripya sabhi fields sahi bharein (idea kam se kam 20 characters)."); return; }
     setError(null); setBusy(true);
     try {

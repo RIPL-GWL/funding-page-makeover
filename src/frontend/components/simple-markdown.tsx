@@ -12,7 +12,7 @@ export function SimpleMarkdown({ text }: { text: string }) {
     flush();
     if (!line) continue;
     const h = line.match(/^#{1,4}\s+(.*)/);
-    out.push(h ? <h4 key={out.length} className="mt-3 font-semibold">{inline(h[1])}</h4> : <p key={out.length}>{inline(line)}</p>);
+    out.push(h ? <h4 key={out.length} className="mt-3 font-semibold">{inline(h[1] ?? "")}</h4> : <p key={out.length}>{inline(line)}</p>);
   }
   flush();
   return <div className="space-y-2">{out}</div>;
