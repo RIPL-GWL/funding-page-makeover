@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, BriefcaseBusiness, CalendarDays, Car, ChartNoAxesCombined, CheckCircle2, ClipboardCheck, FilePenLine, Globe2, GraduationCap, Handshake, Headphones, Hotel, Lightbulb, MapPin, Mic, Plane, Rocket, ScanSearch, Star, Target, Trophy, Users, Utensils, type LucideIcon } from "lucide-react";
 import { Button } from "@/frontend/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/frontend/components/ui/accordion";
-import { FundingForm } from "@/frontend/components/forms/funding-form";
+import { ProgrammeApplicationForm } from "./application-form";
 import heroPhoto from "@/assets/funding-gwalior-hero.jpg";
 import supportPhotos from "@/assets/funding-support-photos.jpg";
 import logo from "@/assets/header-wordmark-dark.webp.asset.json";
@@ -64,7 +64,7 @@ const faqs = [
 ];
 
 function RegisterButton({ compact = false }: { compact?: boolean }) {
-  return <Button asChild variant="programme" size={compact ? "default" : "lg"} className="programme-register"><a href="#register" onClick={(event) => { event.preventDefault(); window.dispatchEvent(new Event("programme-register")); }}>{compact ? "Register Now" : "Register Your Startup Now"}<ArrowRight /></a></Button>;
+  return <Button asChild variant="programme" size={compact ? "default" : "lg"} className="programme-register"><a href="#register" onClick={(event) => { event.preventDefault(); document.getElementById("register")?.scrollIntoView({ behavior: "smooth" }); }}>{compact ? "Register Now" : "Register Your Startup Now"}<ArrowRight /></a></Button>;
 }
 function Heading({ children, note }: { children: React.ReactNode; note?: string }) {
   return <div className="programme-heading"><h2>{children}</h2><span aria-hidden="true" />{note && <p>{note}</p>}</div>;
@@ -73,10 +73,9 @@ function IconTiles({ items }: { items: { icon: LucideIcon; title: string }[] }) 
   return <div className="programme-icon-tiles">{items.map(({ icon: Icon, title }) => <div key={title}><Icon aria-hidden="true" /><h3>{title}</h3></div>)}</div>;
 }
 export function FundingProgrammePage() {
-  const [registerOpen, setRegisterOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
   return <><SiteHeader />
-    <main className="programme-page"><RegistrationListener onOpen={() => setRegisterOpen(true)} />
+    <main className="programme-page">
     <section className="programme-hero">
       <img src={hero.url} alt="Startup founder overlooking Gwalior’s fort and palace at sunset" width={1944} height={700} fetchPriority="high" className="programme-hero-photo" />
       <div className="programme-hero-veil" />
@@ -106,11 +105,10 @@ export function FundingProgrammePage() {
       <div className="programme-event"><h2 className="programme-band-title">Event Details</h2><div><p><CalendarDays /><span><strong>29 – 31 December 2026</strong><small>(3-Day Summit)</small></span></p><p><MapPin /><strong>Gwalior, Madhya Pradesh, India</strong></p><img src={hero.url} alt="Gwalior summit location" width={1944} height={700} loading="lazy" /><RegisterButton compact /></div></div>
     </section>
     <section className="page-shell programme-section programme-eligibility"><div><Heading>Who Can Apply?</Heading><IconTiles items={eligibility} /><div id="why-participate"><Heading>Why Participate?</Heading></div><IconTiles items={[{ icon: Lightbulb, title: "Funding Opportunities" }, { icon: Users, title: "Mentorship Support" }, { icon: Handshake, title: "Investor Connect" }, { icon: ClipboardCheck, title: "Business Evaluation" }, { icon: Handshake, title: "Strategic Partnerships" }, { icon: Globe2, title: "National Visibility" }]} /></div><div className="programme-platform"><img src={benefit4} alt="Founder presenting a startup to an audience" width={592} height={298} loading="lazy" /><div><h2>A PLATFORM FOR<br /><em>REAL IDEAS,<br />REAL FOUNDERS,</em><br />REAL IMPACT.</h2><RegisterButton compact /></div></div></section>
+    <section id="register" className="page-shell programme-section programme-app"><Heading note="APPLY NOW">Startup <em>Application</em> Form</Heading><p className="programme-app-intro">Apne startup ka idea, stage aur funding need batayein — turant AI se personalised grant eligibility aur investor-funding recommendations paayein. Grant sirf 2 startups ko milega, par investor funding aapko bhi mil sakti hai.</p><ProgrammeApplicationForm /></section>
     <section id="programme-faq" className="page-shell programme-section"><Heading>Frequently Asked Questions</Heading><div className="programme-faq-layout"><Accordion type="single" collapsible className="programme-faq">{faqs.map(([question, answer], index) => <AccordionItem value={`faq-${index}`} key={question}><AccordionTrigger>{question}</AccordionTrigger><AccordionContent>{answer}</AccordionContent></AccordionItem>)}</Accordion><aside className="programme-help"><Headphones /><h3>Still have questions?</h3><p>Get in touch with our team.</p><Button asChild variant="outline"><Link to="/contact">Contact Us <ArrowRight /></Link></Button></aside></div></section>
     <section className="programme-closing"><img src={hero.url} alt="Gwalior palace at sunset" width={1944} height={700} loading="lazy" /><div className="page-shell"><h2>Ideas Today. Impact Tomorrow.</h2><p>Join the RIPL Startup Funding Programme and take your startup to the next level.</p><RegisterButton /></div></section>
     </main><SiteFooter />
-    <Dialog open={registerOpen} onOpenChange={setRegisterOpen}><DialogContent className="programme-registration-dialog"><DialogTitle>Register Your Startup</DialogTitle><p>RIPL Startup Funding Programme · 29–31 December 2026, Gwalior</p><FundingForm /></DialogContent></Dialog>
     <Dialog open={videoOpen} onOpenChange={setVideoOpen}><DialogContent><DialogTitle>RIPL Startup Funding Programme</DialogTitle><p>The programme video has not been provided yet. Explore the five-stage startup journey below.</p><Button variant="programme" asChild><a href="#process" onClick={() => setVideoOpen(false)}>View Startup Journey <ArrowRight /></a></Button></DialogContent></Dialog>
   </>;
 }
-function RegistrationListener({ onOpen }: { onOpen: () => void }) { useEffect(() => { window.addEventListener("programme-register", onOpen); return () => window.removeEventListener("programme-register", onOpen); }, [onOpen]); return null; }

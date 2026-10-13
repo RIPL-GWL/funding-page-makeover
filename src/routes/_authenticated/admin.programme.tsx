@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import ReactMarkdown from "react-markdown";
+import { SimpleMarkdown } from "@/frontend/components/simple-markdown";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -60,7 +60,7 @@ function ProgrammeAdmin() {
             {open === r.id && <tr key={`${r.id}-d`} className="bg-muted/40"><td colSpan={8} className="space-y-2 p-3 text-foreground">
               <p><strong>Idea:</strong> {r.idea}</p>
               <p className="text-muted-foreground">{r.city ?? ""} · {r.participants} participant(s) · {new Date(r.created_at).toLocaleString("en-IN")}</p>
-              {r.ai_recommendation && <div className="prose prose-sm max-w-none rounded border bg-background p-3"><ReactMarkdown>{r.ai_recommendation}</ReactMarkdown></div>}
+              {r.ai_recommendation && <div className="prose prose-sm max-w-none rounded border bg-background p-3"><SimpleMarkdown text={r.ai_recommendation} /></div>}
               <textarea aria-label="Team notes" className="w-full rounded-md border bg-background p-2 text-sm" rows={2} defaultValue={r.notes ?? ""} placeholder="Team notes (call, payment reference…)" onBlur={(e) => e.target.value !== (r.notes ?? "") && update(r.id, { notes: e.target.value })} />
             </td></tr>}
           </>))}</tbody>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReactMarkdown from "react-markdown";
+import { SimpleMarkdown } from "@/frontend/components/simple-markdown";
 import { Button } from "@/components/ui/button";
 import { submitProgrammeApplication } from "@/lib/programme.functions";
 import { applicationSchema, INTEREST_LABELS, registrationTotal, STAGE_LABELS_PROG } from "./rules";
@@ -29,7 +29,7 @@ export function ProgrammeApplicationForm() {
     <div className="programme-app-result">
       <h3>Application received ✓</h3>
       <p>Hamari Funding Programme team aapse jald contact karegi registration aur payment ke liye.</p>
-      {done.advice ? <div className="programme-app-advice"><ReactMarkdown>{done.advice}</ReactMarkdown><small>AI recommendation indicative hai — grant ya funding guaranteed nahi hai.</small></div>
+      {done.advice ? <div className="programme-app-advice"><SimpleMarkdown text={done.advice} /><small>AI recommendation indicative hai — grant ya funding guaranteed nahi hai.</small></div>
         : <p className="programme-app-error">{done.adviceError}</p>}
     </div>
   );
