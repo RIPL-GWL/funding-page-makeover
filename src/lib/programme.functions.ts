@@ -14,7 +14,7 @@ export const submitProgrammeApplication = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => applicationSchema.parse(d))
   .handler(async ({ data }) => {
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-    const { data: row, error } = await supabaseAdmin.from("programme_applications").insert(data).select("id").single();
+    const { data: row, error } = await supabaseAdmin.from("programme_applications").insert({ ...data, city: data.city ?? null }).select("id").single();
     if (error || !row) { console.error(error); return { ok: false as const, error: "Application save nahi ho payi. Kripya dobara try karein." }; }
     const { generateAdvice, AdviceError } = await import("./ai-advice.server");
     const prompt = `Startup: ${data.startup_name} (${data.city ?? "city not given"})\nStage: ${STAGE_LABELS_PROG[data.stage]}\nFunding need: ₹${data.funding_need}\nInterest: ${INTEREST_LABELS[data.funding_interest]}\nIdea: ${data.idea}`;

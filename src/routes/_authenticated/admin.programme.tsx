@@ -4,6 +4,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { SimpleMarkdown } from "@/frontend/components/simple-markdown";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { Button } from "@/components/ui/button";
 import { fetchPeople, inr } from "@/lib/crm";
 import { INTEREST_LABELS, registrationTotal, STAGE_LABELS_PROG } from "@/frontend/features/funding-programme/rules";
@@ -30,7 +31,7 @@ function ProgrammeAdmin() {
   });
   const { data: people = {} } = useQuery({ queryKey: ["crm-people"], queryFn: fetchPeople });
 
-  async function update(id: string, patch: Record<string, unknown>) {
+  async function update(id: string, patch: Database["public"]["Tables"]["programme_applications"]["Update"]) {
     const { error } = await supabase.from("programme_applications").update(patch).eq("id", id);
     if (error) { toast.error(error.message); return; }
     qc.invalidateQueries({ queryKey: ["programme-apps"] });
