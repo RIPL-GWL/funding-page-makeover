@@ -517,6 +517,72 @@ export type Database = {
         }
         Relationships: []
       }
+      programme_applications: {
+        Row: {
+          ai_recommendation: string | null
+          amount_paid: number
+          assigned_to: string | null
+          city: string | null
+          created_at: string
+          email: string
+          founder_name: string
+          funding_interest: string
+          funding_need: number
+          id: string
+          idea: string
+          notes: string | null
+          participants: number
+          payment_status: string
+          phone: string
+          stage: string
+          startup_name: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          ai_recommendation?: string | null
+          amount_paid?: number
+          assigned_to?: string | null
+          city?: string | null
+          created_at?: string
+          email: string
+          founder_name: string
+          funding_interest: string
+          funding_need?: number
+          id?: string
+          idea: string
+          notes?: string | null
+          participants?: number
+          payment_status?: string
+          phone: string
+          stage: string
+          startup_name: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          ai_recommendation?: string | null
+          amount_paid?: number
+          assigned_to?: string | null
+          city?: string | null
+          created_at?: string
+          email?: string
+          founder_name?: string
+          funding_interest?: string
+          funding_need?: number
+          id?: string
+          idea?: string
+          notes?: string | null
+          participants?: number
+          payment_status?: string
+          phone?: string
+          stage?: string
+          startup_name?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       site_content: {
         Row: {
           data: Json
@@ -642,6 +708,7 @@ export type Database = {
         Returns: boolean
       }
       is_admin: { Args: { _user_id: string }; Returns: boolean }
+      is_programme_team: { Args: { _user_id: string }; Returns: boolean }
       is_sales_manager: { Args: { _user_id: string }; Returns: boolean }
       is_sales_staff: { Args: { _user_id: string }; Returns: boolean }
       is_staff: { Args: { _user_id: string }; Returns: boolean }
