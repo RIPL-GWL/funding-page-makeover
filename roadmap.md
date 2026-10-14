@@ -5,5 +5,5 @@
 - [ ] Existing records and users: awaiting original user IDs/emails and CSV/JSON exports; private account migration and access checks blocked.
 - [ ] Programme video: awaiting user-supplied video.
 - [ ] Published external callers and AI live verification: source preserved, publication/cutover and original private account data unavailable.
-- [ ] Optimize all images into repo + site performance.
-- [ ] Fix build (programme button), admin Programme link, deal AI follow-up button, CRM stage funnel report, tests, verify.
+- [x] Optimize all images into repo + site performance.
+- [x] Fix build (programme button), admin Programme link, deal AI follow-up button, CRM stage funnel report, tests, verify.
