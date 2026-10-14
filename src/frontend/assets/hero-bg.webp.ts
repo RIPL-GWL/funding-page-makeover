@@ -1,2 +1,4 @@
-import asset from "./import assetSrcPointer from "./hero-bg.img.webp";";
-export default asset;
+import assetSrcPointer from "./hero-bg.img.webp";
+const assetSrc = assetSrcPointer;
+const asset = { url: assetSrc };
+export default asset.url;

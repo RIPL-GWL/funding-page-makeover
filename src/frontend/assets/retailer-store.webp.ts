@@ -1,2 +1,4 @@
-import asset from "./import assetSrcPointer from "./retailer-store.img.webp";";
-export default asset;
+import assetSrcPointer from "./retailer-store.img.webp";
+const assetSrc = assetSrcPointer;
+const asset = { url: assetSrc };
+export default asset.url;
