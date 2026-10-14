@@ -1,2 +1,2 @@
-import asset from "./oral-care-optimized.webp.asset.json";
-export default asset.url;
+import asset from "./oral-care-optimized.webp";
+export default asset;

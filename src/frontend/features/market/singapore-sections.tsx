@@ -6,11 +6,11 @@ import heroSrc from "@/frontend/assets/singapore-market/hero.webp";
 const hero = { url: heroSrc };
 import partnerSrc from "@/frontend/assets/singapore-market/partner.webp";
 const partner = { url: partnerSrc };
-import productsSrcAsset from "@/assets/sg-products.webp.asset.json";
-const productsSrc = productsSrcAsset.url;
+import productsSrcAsset from "@/assets/sg-products.webp";
+const productsSrc = productsSrcAsset;
 const products = { url: productsSrc };
-import portSrcAsset from "@/assets/sg-port.webp.asset.json";
-const portSrc = portSrcAsset.url;
+import portSrcAsset from "@/assets/sg-port.webp";
+const portSrc = portSrcAsset;
 const port = { url: portSrc };
 
 type Point = { icon: LucideIcon; title: string; note?: string };

@@ -1,4 +1,4 @@
-import assetSrcPointer from "./gp-world-map.img.webp.asset.json";
-const assetSrc = assetSrcPointer.url;
+import assetSrcPointer from "./gp-world-map.img.webp";
+const assetSrc = assetSrcPointer;
 const asset = { url: assetSrc };
 export default asset.url;

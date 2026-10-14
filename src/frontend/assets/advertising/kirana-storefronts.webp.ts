@@ -1,4 +1,4 @@
-import assetSrcPointer from "./kirana-storefronts.img.webp.asset.json";
-const assetSrc = assetSrcPointer.url;
+import assetSrcPointer from "./kirana-storefronts.img.webp";
+const assetSrc = assetSrcPointer;
 const asset = { url: assetSrc };
 export default asset.url;

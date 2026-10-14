@@ -7,14 +7,14 @@ import {
 import { Button } from "@/frontend/components/ui/button";
 import heroAssetSrc from "@/frontend/assets/australia-market/hero.webp";
 const heroAsset = { url: heroAssetSrc };
-import indiaExportsImgSrcAsset from "@/assets/au-india-exports.webp.asset.json";
-const indiaExportsImgSrc = indiaExportsImgSrcAsset.url;
+import indiaExportsImgSrcAsset from "@/assets/au-india-exports.webp";
+const indiaExportsImgSrc = indiaExportsImgSrcAsset;
 const indiaExportsImg = { url: indiaExportsImgSrc };
-import auExportsImgSrcAsset from "@/assets/au-australia-exports.webp.asset.json";
-const auExportsImgSrc = auExportsImgSrcAsset.url;
+import auExportsImgSrcAsset from "@/assets/au-australia-exports.webp";
+const auExportsImgSrc = auExportsImgSrcAsset;
 const auExportsImg = { url: auExportsImgSrc };
-import portImgSrcAsset from "@/assets/au-port.webp.asset.json";
-const portImgSrc = portImgSrcAsset.url;
+import portImgSrcAsset from "@/assets/au-port.webp";
+const portImgSrc = portImgSrcAsset;
 const portImg = { url: portImgSrc };
 
 const presence = [

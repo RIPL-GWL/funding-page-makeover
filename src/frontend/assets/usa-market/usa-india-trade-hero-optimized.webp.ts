@@ -1,2 +1,2 @@
-import asset from "./usa-india-trade-hero-optimized.webp.asset.json";
-export default asset.url;
+import asset from "./usa-india-trade-hero-optimized.webp";
+export default asset;

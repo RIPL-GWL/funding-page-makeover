@@ -1,2 +1,2 @@
-import asset from "./food-beverage-optimized.webp.asset.json";
-export default asset.url;
+import asset from "./food-beverage-optimized.webp";
+export default asset;

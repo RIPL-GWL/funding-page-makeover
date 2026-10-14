@@ -4,11 +4,11 @@ import type { LucideIcon } from "lucide-react";
 import { Button } from "@/frontend/components/ui/button";
 import heroSrc from "@/frontend/assets/uk-market/hero.webp";
 const hero = { url: heroSrc };
-import productsSrcAsset from "@/assets/uk-products.webp.asset.json";
-const productsSrc = productsSrcAsset.url;
+import productsSrcAsset from "@/assets/uk-products.webp";
+const productsSrc = productsSrcAsset;
 const products = { url: productsSrc };
-import bridgeSrcAsset from "@/assets/uk-bridge.webp.asset.json";
-const bridgeSrc = bridgeSrcAsset.url;
+import bridgeSrcAsset from "@/assets/uk-bridge.webp";
+const bridgeSrc = bridgeSrcAsset;
 const bridge = { url: bridgeSrc };
 
 type Point = { icon: LucideIcon; title: string; note?: string };

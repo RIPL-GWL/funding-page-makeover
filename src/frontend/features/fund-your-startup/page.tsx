@@ -3,16 +3,16 @@ import { ArrowRight, ChartNoAxesCombined, Coins, FileText, Globe2, HandCoins, Ha
 import { Button } from "@/frontend/components/ui/button";
 import { FundingForm } from "@/frontend/components/forms/funding-form";
 import { isNavratri, useSiteTheme } from "@/frontend/lib/site-theme";
-import heroSrcAsset from "@/assets/startup-staircase.webp.asset.json";
-const heroSrc = heroSrcAsset.url;
+import heroSrcAsset from "@/assets/startup-staircase.webp";
+const heroSrc = heroSrcAsset;
 const hero = { url: heroSrc };
-import impactSrcAsset from "@/assets/startup-india.webp.asset.json";
-const impactSrc = impactSrcAsset.url;
+import impactSrcAsset from "@/assets/startup-india.webp";
+const impactSrc = impactSrcAsset;
 const impact = { url: impactSrc };
-import teamAsset from "@/assets/startup-team.webp.asset.json";
-const team = teamAsset.url;
-import supportAsset from "@/assets/startup-support.webp.asset.json";
-const support = supportAsset.url;
+import teamAsset from "@/assets/startup-team.webp";
+const team = teamAsset;
+import supportAsset from "@/assets/startup-support.webp";
+const support = supportAsset;
 
 const strengths = [
   { icon: Coins, title: "Funding Support", text: "From Idea to Scale" },

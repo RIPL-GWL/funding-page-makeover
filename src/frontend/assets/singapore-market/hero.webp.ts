@@ -1,2 +1,2 @@
-import asset from "./hero.webp.asset.json";
-export default asset.url;
+import asset from "./hero.webp";
+export default asset;
