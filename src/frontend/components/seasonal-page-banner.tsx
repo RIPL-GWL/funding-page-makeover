@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sun } from "lucide-react";
-import artworkSrcAsset from "@/assets/navratri-dark-vision.webp.asset.json";
-const artworkSrc = artworkSrcAsset.url;
+import artworkSrcAsset from "@/assets/navratri-dark-vision.webp";
+const artworkSrc = artworkSrcAsset;
 const artwork = { url: artworkSrc };
 import { isNavratri, setSiteTheme, useSiteTheme } from "../lib/site-theme";
 import { Button } from "./ui/button";

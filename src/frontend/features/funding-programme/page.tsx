@@ -5,25 +5,25 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ProgrammeApplicationForm } from "./application-form";
 import heroPhoto from "@/assets/funding-gwalior-hero.jpg";
 import supportPhotos from "@/assets/funding-support-photos.jpg";
-import logo from "@/assets/header-wordmark-dark.webp.asset.json";
+import logo from "@/assets/header-wordmark-dark.webp";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/frontend/components/ui/dialog";
 import { Play } from "lucide-react";
 import { programmeRules, registrationTotal } from "./rules";
 import { SiteFooter, SiteHeader } from "@/frontend/components/site-chrome";
 const hero = { url: heroPhoto };
-import benefit0Asset from "@/assets/funding-programme-benefit-0.webp.asset.json";
-const benefit0 = benefit0Asset.url;
-import benefit1Asset from "@/assets/funding-programme-benefit-1.webp.asset.json";
-const benefit1 = benefit1Asset.url;
-import benefit2Asset from "@/assets/funding-programme-benefit-2.webp.asset.json";
-const benefit2 = benefit2Asset.url;
-import benefit3Asset from "@/assets/funding-programme-benefit-3.webp.asset.json";
-const benefit3 = benefit3Asset.url;
-import benefit4Asset from "@/assets/funding-programme-benefit-4.webp.asset.json";
-const benefit4 = benefit4Asset.url;
-import benefit5Asset from "@/assets/funding-programme-benefit-5.webp.asset.json";
-const benefit5 = benefit5Asset.url;
+import benefit0Asset from "@/assets/funding-programme-benefit-0.webp";
+const benefit0 = benefit0Asset;
+import benefit1Asset from "@/assets/funding-programme-benefit-1.webp";
+const benefit1 = benefit1Asset;
+import benefit2Asset from "@/assets/funding-programme-benefit-2.webp";
+const benefit2 = benefit2Asset;
+import benefit3Asset from "@/assets/funding-programme-benefit-3.webp";
+const benefit3 = benefit3Asset;
+import benefit4Asset from "@/assets/funding-programme-benefit-4.webp";
+const benefit4 = benefit4Asset;
+import benefit5Asset from "@/assets/funding-programme-benefit-5.webp";
+const benefit5 = benefit5Asset;
 
 const benefits = [
   { icon: Users, title: "Mentor Support", text: "Get guidance from experienced mentors to refine your business idea and pitch.", image: benefit0 },
@@ -92,7 +92,7 @@ export function FundingProgrammePage() {
         <div className="programme-date"><CalendarDays /><div><strong>29 · 30 · 31</strong><b>DECEMBER 2026</b><span>(3-Day Summit)</span></div><p><MapPin /> Gwalior, Madhya Pradesh, India</p></div>
       </div>
     </section>
-    <section className="programme-strip"><div className="page-shell"><IconTiles items={[{ icon: Lightbulb, title: "Funding Opportunities" }, { icon: Handshake, title: "Investor Connect" }, { icon: Users, title: "Mentorship Support" }, { icon: ClipboardCheck, title: "Business Evaluation" }, { icon: Handshake, title: "Strategic Networking" }, { icon: ChartNoAxesCombined, title: "National Visibility" }]} /><p><img src={logo.url} alt="RIPL" width={70} height={35} />Organised by <strong>Rishishwar Industry Private Limited (RIPL)</strong><small>Grow Your Business With Us.</small></p></div></section>
+    <section className="programme-strip"><div className="page-shell"><IconTiles items={[{ icon: Lightbulb, title: "Funding Opportunities" }, { icon: Handshake, title: "Investor Connect" }, { icon: Users, title: "Mentorship Support" }, { icon: ClipboardCheck, title: "Business Evaluation" }, { icon: Handshake, title: "Strategic Networking" }, { icon: ChartNoAxesCombined, title: "National Visibility" }]} /><p><img src={logo} alt="RIPL" width={70} height={35} />Organised by <strong>Rishishwar Industry Private Limited (RIPL)</strong><small>Grow Your Business With Us.</small></p></div></section>
     <section id="about-programme" className="programme-funding"><div className="page-shell programme-funding-grid">
       <div className="programme-opportunity"><p>UP TO</p><h2>₹15 LAKHS<span>NON-REFUNDABLE GRANT OPPORTUNITY</span></h2><p>A platform to support innovative startups and emerging businesses with a non-refundable grant, mentorship and investor connections.</p><p className="programme-grant-highlight"><strong>The non-refundable grant will be awarded to only two startups.</strong> But funding can also come your way — selected startups pitch to participating investors for additional funding.</p></div>
       <div><div className="programme-prizes">{[{ title: "Top Performing Startup", amount: "₹10 LAKHS" }, { title: "Second Top Performing Startup", amount: "₹5 LAKHS" }].map(({ title, amount }) => <article key={title}><Trophy /><div><h3>{title}</h3><p>Up to <strong>{amount}</strong></p></div></article>)}</div><p className="programme-terms">The non-refundable grant is awarded to only two startups. Subject to evaluation, eligibility, performance and applicable Terms &amp; Conditions.</p><IconTiles items={[{icon:Users,title:"Mentor Support"},{icon:Handshake,title:"Investor Meetings"},{icon:ClipboardCheck,title:"Business Evaluation"},{icon:ChartNoAxesCombined,title:"5-Stage Startup Journey"},{icon:Handshake,title:"Strategic Partnerships"},{icon:Globe2,title:"National Exposure"}]} /></div>

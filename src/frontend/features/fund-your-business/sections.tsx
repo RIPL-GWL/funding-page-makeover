@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, Coins, Factory, Handshake, Rocket, Sprout, TrendingUp, FileText } from "lucide-react";
 import { Button } from "@/frontend/components/ui/button";
-import fundingBannerAssetSrcAsset from "@/assets/funding-banner.webp.asset.json";
-const fundingBannerAssetSrc = fundingBannerAssetSrcAsset.url;
+import fundingBannerAssetSrcAsset from "@/assets/funding-banner.webp";
+const fundingBannerAssetSrc = fundingBannerAssetSrcAsset;
 const fundingBannerAsset = { url: fundingBannerAssetSrc };
 const fundingBanner = fundingBannerAsset.url;
 import fundMachinery from "@/frontend/assets/fund-machinery.jpg";

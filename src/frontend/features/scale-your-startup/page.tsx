@@ -3,16 +3,16 @@ import { ArrowRight, Rocket, Users, MapPin, Globe2, CheckCircle2, Target, Coins,
 import { Button } from "@/frontend/components/ui/button";
 import { isNavratri, useSiteTheme } from "@/frontend/lib/site-theme";
 import { districtFigure } from "@/frontend/data/retail-network";
-import heroSrcAsset from "@/assets/scale-startup-hero.webp.asset.json";
-const heroSrc = heroSrcAsset.url;
+import heroSrcAsset from "@/assets/scale-startup-hero.webp";
+const heroSrc = heroSrcAsset;
 const hero = { url: heroSrc };
-import tractionSrcAsset from "@/assets/scale-startup-journey.webp.asset.json";
-const tractionSrc = tractionSrcAsset.url;
+import tractionSrcAsset from "@/assets/scale-startup-journey.webp";
+const tractionSrc = tractionSrcAsset;
 const traction = { url: tractionSrc };
-import foundersAsset from "@/assets/startup-team.webp.asset.json";
-const founders = foundersAsset.url;
-import summitAsset from "@/assets/scale-startup-summit.webp.asset.json";
-const summit = summitAsset.url;
+import foundersAsset from "@/assets/startup-team.webp";
+const founders = foundersAsset;
+import summitAsset from "@/assets/scale-startup-summit.webp";
+const summit = summitAsset;
 
 const services = [
   { icon: Target, title: "Strategy & Positioning", text: "Refine your business model, market positioning and go-to-market strategy.", to: "/startup-with-ripl" },

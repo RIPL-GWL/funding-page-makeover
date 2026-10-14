@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SimpleMarkdown } from "@/frontend/components/simple-markdown";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/frontend/components/ui/button";
 import { submitProgrammeApplication } from "@/lib/programme.functions";
 import { applicationSchema, INTEREST_LABELS, registrationTotal, STAGE_LABELS_PROG } from "./rules";
 

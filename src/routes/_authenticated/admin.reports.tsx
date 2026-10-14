@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { fetchMyRoles } from "@/lib/admin";
+import { conversionSummary, stageFunnel } from "@/lib/crm-report";
 import { canSeeAll, fetchDeals, fetchPeople, inr, monthStart, PIPELINE_LABELS, PIPELINES, STAGE_LABELS, STAGES } from "@/lib/crm";
 
 export const Route = createFileRoute("/_authenticated/admin/reports")({
@@ -60,6 +61,7 @@ function ReportsPage() {
         <Card label="Lost this month" value={String(lostM.length)} />
         <Card label="Win rate this month" value={`${winRate}%`} />
       </div>
+      <StageReport deals={deals} />
       <div className="grid gap-4 md:grid-cols-2">
         <Breakdown title="By stage" rows={STAGES.map((s) => [STAGE_LABELS[s] ?? s, deals.filter((d) => d.stage === s)])} sum={sum} />
         <Breakdown title="By pipeline" rows={PIPELINES.map((p) => [PIPELINE_LABELS[p] ?? p, deals.filter((d) => d.pipeline === p)])} sum={sum} />
@@ -90,6 +92,25 @@ function Breakdown({ title, rows, sum }: { title: string; rows: [string, { value
       <ul className="space-y-2 text-sm">{rows.map(([label, l]) => (
         <li key={label}><div className="flex justify-between text-foreground"><span>{label} ({l.length})</span><span>{inr(sum(l as never[]))}</span></div><div className="h-2 rounded bg-muted"><div className="h-2 rounded bg-primary" style={{ width: `${(sum(l as never[]) / max) * 100}%` }} /></div></li>
       ))}</ul>
+    </section>
+  );
+}
+
+function StageReport({ deals }: { deals: { stage: string; value: number }[] }) {
+  const c = conversionSummary(deals);
+  const f = stageFunnel(deals);
+  return (
+    <section className="space-y-3 rounded-lg border bg-card p-4">
+      <h2 className="text-lg font-semibold text-foreground">Stage-wise report (all time)</h2>
+      <div className="grid gap-3 sm:grid-cols-3">
+        <div><p className="text-xs text-muted-foreground">Conversion rate (won ÷ closed)</p><p className="text-2xl font-semibold text-foreground">{c.conversionRate}%</p></div>
+        <div><p className="text-xs text-muted-foreground">Jeeti hui rakam</p><p className="text-2xl font-semibold text-foreground">{inr(c.wonAmount)} · {c.wonCount}</p></div>
+        <div><p className="text-xs text-muted-foreground">Lost deals</p><p className="text-2xl font-semibold text-foreground">{c.lostCount}</p></div>
+      </div>
+      <div className="overflow-x-auto"><table className="w-full text-sm">
+        <thead className="text-left text-muted-foreground"><tr><th className="py-2">Stage</th><th>Deals at stage</th><th>Value</th><th>Reached this stage</th><th>% of all deals</th></tr></thead>
+        <tbody>{f.map((r) => <tr key={r.stage} className="border-t text-foreground"><td className="py-2">{STAGE_LABELS[r.stage]}</td><td>{r.count}</td><td>{inr(r.value)}</td><td>{r.reached}</td><td>{r.reachedPct}%</td></tr>)}</tbody>
+      </table></div>
     </section>
   );
 }

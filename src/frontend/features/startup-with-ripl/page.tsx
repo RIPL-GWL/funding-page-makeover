@@ -2,19 +2,19 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Lightbulb, Users, Handshake, UserRoundCheck, Coins, TrendingUp, Network, FileText, Search, Settings, Rocket, CheckCircle2, HeartPulse, GraduationCap, Leaf, Wheat, Truck, Factory, Plane, Package, Target } from "lucide-react";
 import { Button } from "@/frontend/components/ui/button";
 import { isNavratri, useSiteTheme } from "@/frontend/lib/site-theme";
-import heroSrcAsset from "@/assets/ripl-startup-hero.webp.asset.json";
-const heroSrc = heroSrcAsset.url;
+import heroSrcAsset from "@/assets/ripl-startup-hero.webp";
+const heroSrc = heroSrcAsset;
 const hero = { url: heroSrc };
-import enterpriseSrcAsset from "@/assets/ripl-startup-enterprise.webp.asset.json";
-const enterpriseSrc = enterpriseSrcAsset.url;
+import enterpriseSrcAsset from "@/assets/ripl-startup-enterprise.webp";
+const enterpriseSrc = enterpriseSrcAsset;
 const enterprise = { url: enterpriseSrc };
-import transformationSrcAsset from "@/assets/ripl-startup-transformation.webp.asset.json";
-const transformationSrc = transformationSrcAsset.url;
+import transformationSrcAsset from "@/assets/ripl-startup-transformation.webp";
+const transformationSrc = transformationSrcAsset;
 const transformation = { url: transformationSrc };
-import teamAsset from "@/assets/startup-team.webp.asset.json";
-const team = teamAsset.url;
-import summitAsset from "@/assets/ripl-startup-summit.webp.asset.json";
-const summit = summitAsset.url;
+import teamAsset from "@/assets/startup-team.webp";
+const team = teamAsset;
+import summitAsset from "@/assets/ripl-startup-summit.webp";
+const summit = summitAsset;
 
 const stats = [
   { icon: Lightbulb, value: "500+", label: "Startup Ideas", detail: "Evaluated" },

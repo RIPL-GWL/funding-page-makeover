@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { RotateCcw, X } from "lucide-react";
-import logoSrcAsset from "@/assets/ri-brand-mark.webp.asset.json";
-const logoSrc = logoSrcAsset.url;
+import logoSrcAsset from "@/assets/ri-brand-mark.webp";
+const logoSrc = logoSrcAsset;
 const logo = { url: logoSrc };
 import { Button } from "./ui/button";
 import { LanguageSelect } from "./language-select";
